@@ -30,7 +30,6 @@ services:
       - .uploads:/var/www/html/wp-content/uploads
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
     environment:
      - PMA_ARBITRARY=1
     restart: always
