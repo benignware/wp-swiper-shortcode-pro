@@ -191,6 +191,7 @@ function swiper_shortcode($params, $content = null) {
             'content' => do_shortcode($matches[5][$index])
           )
         );
+
         $slides[] = $slide;
       }
 

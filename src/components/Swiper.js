@@ -22,7 +22,6 @@ export default class Swiper extends Component {
   static [$instances] = new WeakMap()
 
   static get themes() {
-    console.log('get themes...', this[$themes]);
     return this[$themes];
   }
 
@@ -31,7 +30,6 @@ export default class Swiper extends Component {
   }
 
   static set theme(theme) {
-    console.log('SET THEME: ', theme);
     this[$theme] = theme;
   }
 

@@ -50,7 +50,9 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   list-style-type: none;
-  padding: 0; }
+  padding: 0;
+  outline: 1px solid blue;
+  min-height: 300px; }
   .wp-block-swiper-swiper-gallery[class^="wp-block-"]:not(.wp-block-gallery) figcaption {
     /* outline: 2px solid green; */
     margin-bottom: 0; }

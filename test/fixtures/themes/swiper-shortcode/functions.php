@@ -20,9 +20,27 @@ add_filter( 'post_thumbnail_html', function($html, $post_id) {
 	return $html;
 }, 99, 5 );
 
+
 add_filter( 'swiper_options', function($options) {
+  $slides_per_view = $options['slides_per_view'];
+
+  $breakpoints = [
+    '375' => [
+      'slides_per_view' => 1
+    ]
+  ];
+
+  if ($slides_per_view >= 4) {
+    $breakpoints = array_merge($breakpoints, [
+      '768' => [
+        'slides_per_view' => 2
+      ]
+    ]);
+  }
+
 	$options = array_merge(array(
-    'theme' => 'primary'
+    'theme' => 'primary',
+    'breakpoints' => $breakpoints
   ), $options);
   return $options;
 });

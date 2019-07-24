@@ -3,6 +3,8 @@
 	flex-wrap: wrap;
 	list-style-type: none;
 	padding: 0;
+	outline: 1px solid blue;
+	min-height: 300px;
 
 
 	&[class^="wp-block-"]:not(.wp-block-gallery) figcaption {

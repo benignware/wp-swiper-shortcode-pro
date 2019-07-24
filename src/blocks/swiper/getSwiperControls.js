@@ -52,8 +52,6 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 
 	const { options: { theme }, themes } = remoteSettings;
 
-	console.log('THEMES', themes, theme);
-
 	const themeOptions = [
 		{
 			label: `${__('Default')}${theme ? ` (${__(humanizeString(theme))})` : ''}`,

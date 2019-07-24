@@ -109,7 +109,7 @@ class GalleryImage extends Component {
 		const { className, url, alt, id, linkTo, link, isFirstItem, isLastItem, isSelected, caption, onRemove, onMoveForward, onMoveBackward, setAttributes, 'aria-label': ariaLabel } = this.props;
 		const { image, size, fit } = this.props;
 		const sizes = image && image.media_details.sizes;
-		const src = size ? sizes && sizes[size] ? sizes[size].source_url : null : url;
+		const src = sizes && sizes[size] && sizes[size].source_url || url;
 
 		let href;
 
@@ -127,7 +127,7 @@ class GalleryImage extends Component {
 			// direct image selection and unfocus caption fields.
 			/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 			<Fragment>
-				{ src && (
+				{ url && (
 					<img
 						className="swiper-gallery-img"
 						style={fit ? {
@@ -136,7 +136,7 @@ class GalleryImage extends Component {
 							objectFit: fit,
 							objectPosition: 'center'
 						} : undefined}
-						src={ src }
+						src={ url }
 						alt={ alt }
 						data-id={ id }
 						onClick={ this.onSelectImage }
