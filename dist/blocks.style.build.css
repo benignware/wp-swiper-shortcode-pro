@@ -163,6 +163,9 @@
 .block-editor-block-list__layout .block-editor-block-list__block .wp-block-swiper-swiper-gallery ::selection {
   outline: none; }
 
+.swiper-gallery {
+  margin-bottom: 1rem; }
+
 .swiper-gallery-item {
   position: relative; }
 
@@ -208,7 +211,8 @@
   .swiper-gallery-item figcaption {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
     max-height: 100%;
     overflow: auto;
     padding: 40px 10px 9px;

@@ -76,9 +76,21 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 							slidesPerView: value
 						})}
 						min={ 1 }
-						max={ size }
+						max={ Math.floor(size / attributes.slidesPerColumn) }
 						required
 					/>
+					<RangeControl
+						label={ __( 'Slides Per Column' ) }
+						value={ attributes.slidesPerColumn }
+						onChange={(value) => props.setAttributes({
+							...attributes,
+							slidesPerColumn: value
+						})}
+						min={ 1 }
+						max={ Math.floor(size / attributes.slidesPerView) }
+						required
+					/>
+					{/*
 					<TextControl
 						label={ __( 'Space between' ) }
 						value={ attributes.spaceBetween }
@@ -86,6 +98,17 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 							...attributes,
 							spaceBetween: value
 						})}
+					/>
+					*/}
+					<RangeControl
+						label={ __( 'Space between' ) }
+						value={ attributes.spaceBetween }
+						onChange={(value) => props.setAttributes({
+							...attributes,
+							spaceBetween: value
+						})}
+						min={ 0 }
+						max={ 100 }
 					/>
 					<ToggleControl
 						label={ __( 'Centered Slides' ) }

@@ -132,6 +132,7 @@ function swiper_shortcode($params, $content = null) {
 		// Swiper params
     'space_between' => 0,
 		'slides_per_view' => 1,
+    'slides_per_column' => 1,
 		'navigation' => true,
 		'pagination' => false,
 		'scrollbar' => false,

@@ -49,6 +49,7 @@ export default class Swiper extends Component {
     pagination: 'bullets',
     scrollbar: false,
     slidesPerView: 1,
+    slidesPerColumn: 1,
     spaceBetween: 0,
     centeredSlides: false,
     simulateTouch: true,

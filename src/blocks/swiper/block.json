@@ -14,6 +14,10 @@
 			"type": "number",
 			"default": 1
 		},
+		"slidesPerColumn": {
+			"type": "number",
+			"default": 1
+		},
 		"spaceBetween": {
 			"type": "number",
 			"default": 0
