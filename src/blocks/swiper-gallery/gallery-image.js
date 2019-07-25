@@ -106,7 +106,26 @@ class GalleryImage extends Component {
 	}
 
 	render() {
-		const { className, url, alt, id, linkTo, link, isFirstItem, isLastItem, isSelected, caption, onRemove, onMoveForward, onMoveBackward, setAttributes, 'aria-label': ariaLabel } = this.props;
+		const {
+			className,
+			itemtag,
+			captiontag,
+			url,
+			alt,
+			id,
+			linkTo,
+			link,
+			isFirstItem,
+			isLastItem,
+			isSelected,
+			caption,
+			onRemove,
+			onMoveForward,
+			onMoveBackward,
+			setAttributes,
+			'aria-label': ariaLabel
+		} = this.props;
+
 		const { image, size, fit } = this.props;
 		const sizes = image && image.media_details.sizes;
 		const src = sizes && sizes[size] && sizes[size].source_url || url;
@@ -152,8 +171,11 @@ class GalleryImage extends Component {
 			/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
 		);
 
+		const ItemTag = itemtag;
+		const CaptionTag = captiontag;
+
 		return (
-			<div className={ classnames(
+			<ItemTag className={ classnames(
 				className, {
 				'is-selected': isSelected,
 				'is-transient': isBlobURL( url ),
@@ -199,7 +221,10 @@ class GalleryImage extends Component {
 						inlineToolbar
 					/>
 					*/}
-			</div>
+					{captiontag && caption && (
+						<CaptionTag>{caption}</CaptionTag>
+					)}
+			</ItemTag>
 		);
 	}
 }

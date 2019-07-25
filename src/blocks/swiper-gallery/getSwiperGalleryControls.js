@@ -80,6 +80,17 @@ export const getSwiperGalleryControls = (props = {}, attributes = {}, size = 0) 
           fit: value
         })}
       />
+			<ToggleControl
+				label={ __( 'Show caption' ) }
+				checked={ !! attributes.captiontag }
+				onChange={ (value) => {
+					props.setAttributes({
+						...attributes,
+						captiontag: value ? 'figcaption' : ''
+					});
+				} }
+				help={ () => !! attributes.captiontag ? __('Captions are displayed') : __(`Captions aren't displayed`) }
+			/>
     </PanelBody>
 	);
 }

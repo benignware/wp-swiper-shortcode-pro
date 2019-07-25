@@ -133,7 +133,7 @@ function swiper_shortcode($params, $content = null) {
     'space_between' => 0,
 		'slides_per_view' => 1,
 		'navigation' => true,
-		'pagination' => true,
+		'pagination' => false,
 		'scrollbar' => false,
 		'autoplay' => false,
 		'loop' => false,
@@ -329,7 +329,9 @@ function swiper_gallery_shortcode($params, $content = null) {
     'post_mime_type' => 'image',
     'ids' => is_array($params['ids']) ? implode(',', $params['ids']) : $params['ids'],
     'size' => 'large',
-    'fit' => 'cover'
+    'fit' => 'cover',
+    'itemtag' => 'figure',
+    'captiontag' => 'figcaption'
   ), $params, 'swiper-gallery'));
 
 	$content = do_shortcode($content);

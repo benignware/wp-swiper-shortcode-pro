@@ -3,13 +3,11 @@
 	flex-wrap: wrap;
 	list-style-type: none;
 	padding: 0;
-	outline: 1px solid blue;
-	min-height: 300px;
-
 
 	&[class^="wp-block-"]:not(.wp-block-gallery) figcaption {
 		/* outline: 2px solid green; */
 		margin-bottom: 0;
+		text-align: center;
 	}
 
 
@@ -32,6 +30,24 @@
 				display: flex;
 				align-items: flex-end;
 				justify-content: flex-start;
+			}
+
+			figcaption {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				max-height: 100%;
+				overflow: auto;
+				padding: 40px 10px 9px;
+				color: $white;
+				text-align: center;
+				font-size: $default-font-size;
+				background: linear-gradient(0deg, rgba($color: $black, $alpha: 0.7) 0, rgba($color: $black, $alpha: 0.3) 70%, transparent);
+				margin-bottom: 0;
+
+				img {
+					display: inline;
+				}
 			}
 		}
 
@@ -129,9 +145,28 @@
 	@include selection-outline();
 }
 
-.swiper-gallery-item figure {
+.swiper-gallery-item {
 	padding: 0;
 	margin: 0;
+	position: relative;
+
+	figcaption {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		max-height: 100%;
+		overflow: auto;
+		padding: 40px 10px 9px;
+		color: $white;
+		text-align: center;
+		font-size: $default-font-size;
+		background: linear-gradient(0deg, rgba($color: $black, $alpha: 0.7) 0, rgba($color: $black, $alpha: 0.3) 70%, transparent);
+		margin-bottom: 0;
+
+		img {
+			display: inline;
+		}
+	}
 }
 
 .swiper-gallery-item img {

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Plugin Name: Swiper Shortcode
+ * Plugin Name: Swiper Shortcode Pro
  * Plugin URI: https://github.com/benignware-labs/wp-swiper-shortcode
  * Description: Swiper Integration for Wordpress
  * Author: Rafael Nowrotek
  * Author URI: http://benignware.com/
- * Version: 0.1.0-beta.16
+ * Version: 0.1.0-beta.17
  *
  */
 
@@ -44,7 +44,8 @@ add_filter('swiper_options', function($options = array(), $params = array()) {
 				'free_mode',
 				'watch_slides_progress',
 				'watch_slides_visibility',
-				'theme'
+				'theme',
+				'breakpoints'
 			));
 		}, ARRAY_FILTER_USE_KEY),
 		array(

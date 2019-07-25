@@ -241,7 +241,9 @@ class GalleryEdit extends Component {
 			navigation,
 			size,
 			thumbs,
-			fit
+			fit,
+			captiontag,
+			itemtag
 		} = attributes;
 
 		const hasImages = !! images.length;
@@ -427,6 +429,8 @@ class GalleryEdit extends Component {
 
 							return (
 								<GalleryImage
+									itemtag={itemtag}
+									captiontag={captiontag}
 									fit={fit}
 									className={classnames(
 										'swiper-gallery-item',

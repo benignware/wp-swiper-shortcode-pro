@@ -50,6 +50,7 @@ export default class Swiper extends Component {
     scrollbar: false,
     slidesPerView: 1,
     spaceBetween: 0,
+    centeredSlides: false,
     simulateTouch: true,
     noSwipingSelector: '*[data-block]',
     watchSlidesVisibility: true,

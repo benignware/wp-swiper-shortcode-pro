@@ -4,7 +4,8 @@
     <div class="swiper-wrapper">
       <?php while( have_posts()) : the_post() ?>
         <!-- Slides -->
-        <div class="swiper-slide">
+        <<?= $itemtag; ?> class="swiper-slide swiper-gallery-item">
+          <?php $caption = wp_get_attachment_caption($post->ID); ?>
           <img
             class="swiper-gallery-img"
             <?php if ($fit): ?>
@@ -12,7 +13,12 @@
             <?php endif; ?>
             src="<?= wp_get_attachment_image_src($post->ID, $size)[0] ?>"
           />
-        </div>
+          <?php if ( $captiontag && trim( $caption ) ): ?>
+            <<?= $captiontag; ?> class="swiper-gallery-caption">
+              <?= $caption; ?>
+            </<?= $captiontag; ?>>
+          <?php endif; ?>
+        </<?= $itemtag; ?>>
       <?php endwhile; ?>
     </div>
 

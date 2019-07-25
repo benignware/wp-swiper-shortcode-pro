@@ -135,6 +135,8 @@ add_action('init', function() { // phpcs:ignore
 			'render_callback' => function($attributes, $content) {
 				$params = swiper_shortcode_snakeify_keys($attributes);
 
+				// print_r($attributes);
+
 				return swiper_gallery_shortcode($params, $content);
 			}
 		)

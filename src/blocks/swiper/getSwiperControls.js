@@ -26,6 +26,7 @@ const {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	TextControl,
 	Toolbar,
 	withNotices,
 } = wp.components;
@@ -66,30 +67,39 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 	return (
 		<PanelBody title={ __( 'Swiper Settings' ) }>
 			{size > 1 && (
-				<RangeControl
-					label={ __( 'Slides Per View' ) }
-					value={ attributes.slidesPerView }
-					onChange={(value) => props.setAttributes({
-						...attributes,
-						slidesPerView: value
-					})}
-					min={ 1 }
-					max={ size }
-					required
-				/>
+				<Fragment>
+					<RangeControl
+						label={ __( 'Slides Per View' ) }
+						value={ attributes.slidesPerView }
+						onChange={(value) => props.setAttributes({
+							...attributes,
+							slidesPerView: value
+						})}
+						min={ 1 }
+						max={ size }
+						required
+					/>
+					<TextControl
+						label={ __( 'Space between' ) }
+						value={ attributes.spaceBetween }
+						onChange={(value) => props.setAttributes({
+							...attributes,
+							spaceBetween: value
+						})}
+					/>
+					<ToggleControl
+						label={ __( 'Centered Slides' ) }
+						checked={ !! attributes.centeredSlides }
+						onChange={ (value) => {
+							props.setAttributes({
+								...attributes,
+								centeredSlides: value
+							});
+						} }
+						help={ () => attributes.centeredSlides ? __('Slides are centered') : __(`Slides aren't centered`) }
+					/>
+				</Fragment>
 			)}
-			{/*
-			<ToggleControl
-				label={ __( 'Centered Slides' ) }
-				checked={ !! attributes.centeredSlides }
-				onChange={ (value) => {
-					props.setAttributes({
-						...attributes,
-						centeredSlides: value
-					});
-				} }
-				help={ () => attributes.centeredSlides ? __('Slides are centered') : __(`Slides aren't centered`) }
-			/>*/}
 			<ToggleControl
 				label={ __( 'Navigation' ) }
 				checked={ !! attributes.navigation }
