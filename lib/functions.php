@@ -53,6 +53,12 @@ function get_swiper($template, $format = '', $params = array()) {
 		)
 	);
 
+  if (is_numeric($options['autoplay'])) {
+    $options['autoplay'] = [
+      'delay' => $options['autoplay']
+    ];
+  }
+
 	$output = swiper_shortcode_render_template($template, $format, $params);
 
 	// Create script
