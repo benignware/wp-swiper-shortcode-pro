@@ -39,10 +39,11 @@ function swiper_shortcode_snakeify_keys($array, $arrayHolder = array()) {
 
     if (!is_array($val)) {
       $result[$newKey] = $val;
-    } else {
+    } else if (isset($result[$newKey])) {
       $result[$newKey] = swiper_shortcode_snakeify_keys($val, $result[$newKey]);
     }
   }
+
   return $result;
 }
 
@@ -56,7 +57,7 @@ function swiper_shortcode_camelize_keys($array, $arrayHolder = array()) {
     $newKey{0} = strtolower($newKey{0});
     if (!is_array($val)) {
       $result[$newKey] = $val;
-    } else {
+    } else if (isset($result[$newKey])) {
       $result[$newKey] = swiper_shortcode_camelize_keys($val, $result[$newKey]);
     }
   }
@@ -67,7 +68,7 @@ function swiper_shortcode_render_template($template, $format = '', $data = array
 	$is_absolute_path = $template[0] === DIRECTORY_SEPARATOR || preg_match('~\A[A-Z]:(?![^/\\\\])~i', $template) > 0;
 	$path_parts = pathinfo($template);
   $template_name = $format ? $path_parts['filename'] . '-' . $format : $path_parts['filename'];
-	$template_ext = $path_parts['extension'] ?: 'php';
+	$template_ext = isset($path_parts['extension']) ? $path_parts['extension'] : 'php';
 	$template_base = $template_name . '.' . $template_ext;
 	$template_dir = $path_parts['dirname'];
 

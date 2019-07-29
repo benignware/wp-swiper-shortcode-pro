@@ -6,7 +6,7 @@
  * Description: Swiper Integration for Wordpress
  * Author: Rafael Nowrotek
  * Author URI: http://benignware.com/
- * Version: 0.1.0-beta.19
+ * Version: 0.1.0-beta.20
  *
  */
 
@@ -50,14 +50,14 @@ add_filter('swiper_options', function($options = array(), $params = array()) {
 			));
 		}, ARRAY_FILTER_USE_KEY),
 		array(
-			'navigation' => $options['navigation'] ? array_merge(
+			'navigation' => isset($options['navigation']) && $options['navigation'] ? array_merge(
 				array(
 					'nextEl' => '.swiper-button-next',
 					'prevEl' => '.swiper-button-prev'
 				),
 				is_array($options['navigation']) ? $options['navigation'] : array()
 			) : null,
-			'pagination' => $options['pagination'] ? array_merge(
+			'pagination' => isset($options['pagination']) && $options['pagination'] ? array_merge(
 				array(
 					'el' => '.swiper-pagination',
 					'clickable' => false
@@ -67,13 +67,13 @@ add_filter('swiper_options', function($options = array(), $params = array()) {
 					'type' => $options['pagination']
 				) : array()
 			) : null,
-			'scrollbar' => $options['scrollbar'] ? array_merge(
+			'scrollbar' => isset($options['scrollbar']) && $options['scrollbar'] ? array_merge(
 				array(
 					'el' => '.swiper-scrollbar'
 				),
 				is_array($options['scrollbar']) ? $options['scrollbar'] : array()
 			) : null,
-			'thumbs' => (is_array($options['thumbs']) || $options['thumbs']) ? array_merge(
+			'thumbs' => isset($options['thumbs']) && (is_array($options['thumbs']) || $options['thumbs']) ? array_merge(
 				array(
 					'slides_per_view' => 3,
 					'space_between' => 0,

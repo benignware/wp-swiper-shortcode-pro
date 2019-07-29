@@ -42,7 +42,7 @@ function get_swiper($template, $format = '', $params = array()) {
   $params = array_merge(
     $params,
 		array(
-      'theme' => $registered_swiper_themes[$theme] ?: array(
+      'theme' => isset($registered_swiper_themes[$theme]) ?: array(
 				'classes' => array(
 					'swiper-button-next' => '',
 					'swiper-button-prev' => '',
@@ -53,7 +53,7 @@ function get_swiper($template, $format = '', $params = array()) {
 		)
 	);
 
-  if (is_numeric($options['autoplay'])) {
+  if (isset($options['autoplay']) && is_numeric($options['autoplay'])) {
     $options['autoplay'] = [
       'delay' => $options['autoplay']
     ];
