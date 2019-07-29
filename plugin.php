@@ -6,7 +6,7 @@
  * Description: Swiper Integration for Wordpress
  * Author: Rafael Nowrotek
  * Author URI: http://benignware.com/
- * Version: 0.1.0-beta.22
+ * Version: 0.1.0-beta.23
  *
  */
 
@@ -21,6 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once plugin_dir_path( __FILE__ ) . 'lib/helpers.php';
 require_once plugin_dir_path( __FILE__ ) . 'lib/functions.php';
+
+require_once plugin_dir_path( __FILE__ ) . 'features/sidebar.php';
 
 
 /**
