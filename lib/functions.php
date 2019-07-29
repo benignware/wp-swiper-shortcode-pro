@@ -160,7 +160,6 @@ function swiper_shortcode($params, $content = null) {
     'exclude' => '',
 	), $params, 'swiper');
 
-
   // Parse booleans and numbers
   $params = array_map(function($value) {
     $value = $value === 'false' ? false : ($value === 'true' ? true : $value);
