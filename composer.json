@@ -21,12 +21,44 @@
   "repositories": [{
     "type": "composer",
     "url": "https://wpackagist.org"
+  }, {
+    "type": "package",
+    "package": {
+      "name": "benignware/bootstrap-hooks",
+      "version": "v0.1.0-beta.18",
+      "type": "wordpress-muplugin",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/benignware/wp-bootstrap-hooks.git",
+        "reference": "v0.1.0-beta.18"
+      }
+    }
+  }, {
+    "type": "package",
+    "package": {
+      "name": "benignware/kicks-app",
+      "version": "v0.1.0-beta.8",
+      "type": "wordpress-theme",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/benignware-labs/wp-kicks-app.git",
+        "reference": "v0.1.0-beta.8"
+      }
+    }
   }],
   "require": {
     "php": ">=5.3.0",
     "composer/installers": "~1.0"
   },
   "require-dev": {
+    "wemakecustom/wp-mu-loader": "*",
+    "benignware/bootstrap-hooks": ">=0.1.0-beta.18",
+    "benignware/kicks-app": ">=0.1.0-beta.8"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "php -r \"copy('wp-content/mu-plugins/mu-loader/mu-require.php', 'wp-content/mu-plugins/mu-require.php');\""
+    ]
   },
   "extra": {
     "webroot-dir": "wp-core",
