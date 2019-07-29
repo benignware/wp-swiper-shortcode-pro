@@ -7,6 +7,8 @@ function get_swiper($template, $format = '', $params = array()) {
   $options = array_filter($params);
   $options = apply_filters('swiper_options', $options, $params);
 
+
+
   $params = array_merge(
 		array(
 			'id' => 'swiper-' . uniqid(),
@@ -37,12 +39,12 @@ function get_swiper($template, $format = '', $params = array()) {
   );
 
 
-  $theme = isset($options['theme']) ? $options['theme'] : $params['theme'];
+  $theme = isset($options['theme']) && $options['theme'] ? $options['theme'] : $params['theme'];
 
   $params = array_merge(
     $params,
 		array(
-      'theme' => isset($registered_swiper_themes[$theme]) ?: array(
+      'theme' => isset($registered_swiper_themes[$theme]) ? $registered_swiper_themes[$theme] : array(
 				'classes' => array(
 					'swiper-button-next' => '',
 					'swiper-button-prev' => '',
@@ -147,7 +149,7 @@ function swiper_shortcode($params, $content = null) {
 		'parallax' => false,
 		'thumbs' => null,
 		// Query params
-		'ids' => null,
+		'ids' => '',
 		// 'order' => 'ASC',
     // 'orderby' => 'menu_order ID',
 		'order' => '',
@@ -155,7 +157,7 @@ function swiper_shortcode($params, $content = null) {
     'post_status' => 'publish',
     'nopaging' => true,
     'post_type' => 'any',
-    'post_mime_type' => null,
+    'post_mime_type' => '',
     'include' => '',
     'exclude' => '',
 	), $params, 'swiper');
@@ -280,6 +282,10 @@ function swiper_shortcode($params, $content = null) {
 
   } else {
 
+    $include = explode(',', $params['include']);
+    $include = array_map('trim', $params['include']);
+    $include = array_values(array_filter($include));
+
 		$query_params = array_merge(
 			array_intersect_key($params, array_flip([
 				'order',
@@ -291,10 +297,10 @@ function swiper_shortcode($params, $content = null) {
 		    'post_status',
         'nopaging'
 			])),
-      array(
+      count($include) ? array(
         'post__in' => is_array($params['include']) ? $params['include'] : explode(',', $params['include']),
         'orderby' => $params['order'] === 'RAND' ? 'none' : $params['orderby']
-      )
+      ) : array()
     );
 
 		$wp_query = new WP_QUERY($query_params);
