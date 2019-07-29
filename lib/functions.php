@@ -7,8 +7,6 @@ function get_swiper($template, $format = '', $params = array()) {
   $options = array_filter($params);
   $options = apply_filters('swiper_options', $options, $params);
 
-
-
   $params = array_merge(
 		array(
 			'id' => 'swiper-' . uniqid(),
