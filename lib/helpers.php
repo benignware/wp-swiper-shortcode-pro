@@ -39,8 +39,8 @@ function swiper_shortcode_snakeify_keys($array, $arrayHolder = array()) {
 
     if (!is_array($val)) {
       $result[$newKey] = $val;
-    } else if (isset($result[$newKey])) {
-      $result[$newKey] = swiper_shortcode_snakeify_keys($val, $result[$newKey]);
+    } else {
+      $result[$newKey] = swiper_shortcode_snakeify_keys($val, isset($result[$newKey]) ? $result[$newKey] : array());
     }
   }
 
@@ -57,8 +57,8 @@ function swiper_shortcode_camelize_keys($array, $arrayHolder = array()) {
     $newKey{0} = strtolower($newKey{0});
     if (!is_array($val)) {
       $result[$newKey] = $val;
-    } else if (isset($result[$newKey])) {
-      $result[$newKey] = swiper_shortcode_camelize_keys($val, $result[$newKey]);
+    } else {
+      $result[$newKey] = swiper_shortcode_camelize_keys($val, isset($result[$newKey]) ? $result[$newKey] : array());
     }
   }
   return $result;
