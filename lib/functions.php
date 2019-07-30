@@ -280,7 +280,7 @@ function swiper_shortcode($params, $content = null) {
   } else {
 
     $include = explode(',', $params['include']);
-    $include = array_map('trim', $params['include']);
+    $include = array_map('trim', $include);
     $include = array_values(array_filter($include));
 
 		$query_params = array_merge(
@@ -295,7 +295,7 @@ function swiper_shortcode($params, $content = null) {
         'nopaging'
 			])),
       count($include) ? array(
-        'post__in' => is_array($params['include']) ? $params['include'] : explode(',', $params['include']),
+        'post__in' => $include,
         'orderby' => $params['order'] === 'RAND' ? 'none' : $params['orderby']
       ) : array()
     );
