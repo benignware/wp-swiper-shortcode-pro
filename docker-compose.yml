@@ -25,7 +25,7 @@ services:
     restart: always
     volumes:
       - wordpress:/var/www/html
-      - .:/var/www/html/wp-content/plugins/swiper-shortcode
+      - .:/var/www/html/wp-content/plugins/swiper-shortcode-pro
       - ./test/fixtures/themes/swiper-shortcode:/var/www/html/wp-content/themes/swiper-shortcode
       - .uploads:/var/www/html/wp-content/uploads
   phpmyadmin:
@@ -57,7 +57,7 @@ services:
       - composer
     volumes:
       - wordpress:/var/www/html
-      - .:/var/www/html/wp-content/plugins/swiper-shortcode
+      - .:/var/www/html/wp-content/plugins/swiper-shortcode-pro
       - ./test/fixtures/themes/swiper-shortcode:/var/www/html/wp-content/themes/swiper-shortcode
       - ./bin/install-wp.sh:/usr/local/bin/install-wp
     links:
