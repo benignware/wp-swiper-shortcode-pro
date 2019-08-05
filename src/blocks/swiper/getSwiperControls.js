@@ -63,7 +63,7 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 		}))
 	];
 
-	const maxSlidesPerColumn = Math.ceil(size / attributes.slidesPerView);
+	const maxSlidesPerColumn = Math.ceil((size * 2) / attributes.slidesPerView);
 
 
 	return (
