@@ -63,6 +63,8 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 		}))
 	];
 
+	const maxSlidesPerColumn = Math.ceil(size / attributes.slidesPerView);
+
 
 	return (
 		<PanelBody title={ __( 'Swiper Settings' ) }>
@@ -87,7 +89,7 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 							slidesPerColumn: value
 						})}
 						min={ 1 }
-						max={ Math.floor(size / attributes.slidesPerView) }
+						max={ maxSlidesPerColumn }
 						required
 					/>
 					{/*
