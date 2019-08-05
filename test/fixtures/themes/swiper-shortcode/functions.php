@@ -30,7 +30,7 @@ add_filter('swiper_options', function($options) {
       '576' => [
         'slides_per_view' => 1.5,
         'centered_slides' => true,
-        'slides_per_column' => 1
+        // 'slides_per_column' => 1
       ]
     ];
     $breakpoints = $breakpoints + [
@@ -40,20 +40,20 @@ add_filter('swiper_options', function($options) {
       ],
       '992' => [
         'slides_per_view' => 4,
-        'slides_per_column' => $options['slides_per_column'] ?: 1
+        // 'slides_per_column' => $options['slides_per_column'] ?: 1
       ]
     ];
   } else if ($slides_per_view > 1) {
     $breakpoints = $breakpoints + [
       '576' => [
         'slides_per_view' => 1,
-        'slides_per_column' => 1
+        // 'slides_per_column' => 1
       ]
     ];
     $breakpoints = $breakpoints + [
       '768' => [
         'slides_per_view' => 2,
-        'slides_per_column' => $options['slides_per_column'] ?: 1
+        // 'slides_per_column' => $options['slides_per_column'] ?: 1
       ]
     ];
   }
