@@ -104,8 +104,6 @@ function get_swiper($template, $format = '', $params = array()) {
 function register_swiper_theme($name, $theme = array()) {
   global $registered_swiper_themes;
 
-  // echo 'register swiper theme' . $name . '<br/>';
-
   $registered_swiper_themes[$name] = array_merge(
     $theme,
     array(
@@ -175,6 +173,7 @@ function swiper_shortcode($params, $content = null) {
     if ( empty( $params['orderby'] ) ) {
       $params['orderby'] = 'post__in';
     }
+
 
     $params['include'] = $params['ids'];
   }
@@ -280,7 +279,7 @@ function swiper_shortcode($params, $content = null) {
 
   } else {
 
-    $include = explode(',', $params['include']);
+    $include = is_array($params['include']) ? $params['include'] : explode(',', $params['include']);
     $include = array_map('trim', $include);
     $include = array_values(array_filter($include));
 
