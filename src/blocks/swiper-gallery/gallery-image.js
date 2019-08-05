@@ -210,19 +210,21 @@ class GalleryImage extends Component {
 						/>
 					</div>
 					*/}
-					{/*
-					<RichText
-						tagName="figcaption"
-						placeholder={ isSelected ? __( 'Write caption…' ) : null }
-						value={ caption }
-						isSelected={ this.state.captionSelected }
-						onChange={ ( newCaption ) => setAttributes( { caption: newCaption } ) }
-						unstableOnFocus={ this.onSelectCaption }
-						inlineToolbar
-					/>
-					*/}
+
+
 					{captiontag && caption && (
-						<CaptionTag>{caption}</CaptionTag>
+						<Fragment>
+							{/*<CaptionTag>{caption}</CaptionTag>*/}
+							<RichText
+								tagName={captiontag}
+								placeholder={ isSelected ? __( 'Write caption…' ) : null }
+								value={ caption }
+								isSelected={ this.state.captionSelected }
+								onChange={ ( newCaption ) => setAttributes( { caption: newCaption } ) }
+								unstableOnFocus={ this.onSelectCaption }
+								inlineToolbar
+							/>
+						</Fragment>
 					)}
 			</ItemTag>
 		);

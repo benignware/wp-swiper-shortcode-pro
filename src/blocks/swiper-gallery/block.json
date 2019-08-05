@@ -40,6 +40,10 @@
 			"type": "array",
 			"default": [ ]
 		},
+		"captions": {
+			"type": "array",
+			"default": [ ]
+		},
 		"itemtag": {
 			"type": "string",
 			"default": "figure"

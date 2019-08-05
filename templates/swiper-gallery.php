@@ -1,11 +1,11 @@
 <!-- Slider main container -->
+<?php global $wp_query; ?>
 <div class="swiper-gallery">
   <div id="<?= $id; ?>" class="swiper-container">
     <div class="swiper-wrapper">
       <?php while( have_posts()) : the_post() ?>
-        <!-- Slides -->
         <<?= $itemtag; ?> class="swiper-slide swiper-gallery-item">
-          <?php $caption = wp_get_attachment_caption($post->ID); ?>
+          <?php $caption = $captions[$wp_query->current_post] ?: wp_get_attachment_caption($post->ID); ?>
           <img
             class="swiper-gallery-img"
             <?php if ($fit): ?>

@@ -109,6 +109,7 @@ class GalleryEdit extends Component {
 			attributes = {
 				...attributes,
 				ids: map( attributes.images, 'id' ),
+				captions: map( attributes.images, 'caption' )
 			};
 		}
 

@@ -17,4 +17,4 @@ wp core install \
 wp option update permalink_structure "/%year%/%monthnum%/%postname%/" --skip-themes --skip-plugins
 
 # Activate plugin.
-wp plugin activate swiper-shortcode
+wp plugin activate swiper-shortcode-pro

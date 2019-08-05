@@ -146,6 +146,7 @@ function swiper_shortcode($params, $content = null) {
 		'loop' => false,
 		'parallax' => false,
 		'thumbs' => null,
+    'captions' => array(),
 		// Query params
 		'ids' => '',
 		// 'order' => 'ASC',
