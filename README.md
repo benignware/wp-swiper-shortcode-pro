@@ -34,7 +34,7 @@ Download [NodeJS](https://nodejs.org) for your OS.
 #### Install wordpress
 
 ```cli
-docker-compose run --rm wp wp-install
+docker-compose run --rm wp install-wp
 ```
 
 After installation you can log in with user `wordpress` and password `wordpress`.
