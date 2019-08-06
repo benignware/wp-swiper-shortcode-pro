@@ -63,7 +63,8 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 		}))
 	];
 
-	const maxSlidesPerColumn = Math.ceil((size * 2) / attributes.slidesPerView);
+	const maxSlidesPerView = Math.max(8, Math.floor(size / attributes.slidesPerColumn));
+	const maxSlidesPerColumn = Math.max(4, Math.ceil((size * 2) / attributes.slidesPerView));
 
 
 	return (
@@ -78,7 +79,7 @@ export const getSwiperControls = (props = {}, attributes = {}, size = 0, options
 							slidesPerView: value
 						})}
 						min={ 1 }
-						max={ Math.floor(size / attributes.slidesPerColumn) }
+						max={ maxSlidesPerView }
 						required
 					/>
 					<RangeControl
