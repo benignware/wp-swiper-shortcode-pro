@@ -33,7 +33,9 @@ function swiper_shortcode_snakeify_keys($array, $arrayHolder = array()) {
 
   foreach ($array as $key => $val) {
     $str = $key;
-    $str[0] = strtolower($str[0]);
+
+    // $str[0] = strtolower($str[0]);
+    $str = strtolower(substr($str, 0, 1)) . substr($str, 1);
     $func = create_function('$c', 'return "_" . strtolower($c[1]);');
     $newKey = preg_replace_callback('/([A-Z])/', $func, $str);
 
